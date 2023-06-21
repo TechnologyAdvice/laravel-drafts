@@ -23,11 +23,13 @@ it('creates drafts', function () {
         'title' => $post->getOriginal('title'),
         'published_at' => now()->toDateTimeString(),
         'is_current' => false,
+        'created_at' => $post->getOriginal('created_at'),
     ]);
     $this->assertDatabaseHas('posts', [
         'title' => $newPost->title,
         'published_at' => null,
         'is_current' => true,
+        'created_at' => $post->getOriginal('created_at'),
     ]);
 });
 
