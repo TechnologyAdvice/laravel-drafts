@@ -260,7 +260,7 @@ trait HasDrafts
         $draft->shouldSaveAsDraft = false;
         $draft->setCurrent();
         // replicate strips created_at column, so must add the original value back
-        $draft->{$this->getCreatedAtColumn()} = $this->created_at;
+        $draft->{$this->getCreatedAtColumn()} = $this->{$this->getCreatedAtColumn()};
 
         if ($saved = $draft->save($options)) {
             $draft->refresh();
