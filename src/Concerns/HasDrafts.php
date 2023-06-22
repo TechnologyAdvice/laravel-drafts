@@ -259,6 +259,8 @@ trait HasDrafts
         $draft->{$this->getIsPublishedColumn()} = false;
         $draft->shouldSaveAsDraft = false;
         $draft->setCurrent();
+        // replicate strips created_at column, so must add the original value back
+        $draft->{$this->getCreatedAtColumn()} = $this->created_at;
 
         if ($saved = $draft->save($options)) {
             $draft->refresh();
