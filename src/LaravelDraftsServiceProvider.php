@@ -16,7 +16,7 @@ class LaravelDraftsServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('technologyadvice/laravel-drafts')
+            ->name('laravel-drafts')
             ->hasConfigFile()
             ->hasViews();
     }
